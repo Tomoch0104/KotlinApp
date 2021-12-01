@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 31
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    kotlinOptions {
+        jvmTarget = 1.8
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    defaultConfig {
+        applicationId "io.kenji.sample.mastodonclient"
+        minSdk 19
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    compileSdkVersion 31
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // fragment-ktxを追加
+    implementation 'androidx.fragment:fragment-ktx:1.4.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    // コルーチンを追加
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3"
+    // moshi-kotlinを追加
+    implementation "com.squareup.moshi:moshi-kotlin:1.9.2"
+    // converter-moshiは，Retrofitに属する
+    implementation 'com.squareup.retrofit2:converter-moshi:2.7.0'
+    // RecyclerViewを追加
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation 'com.android.support:multidex:1.0.3'
+}
